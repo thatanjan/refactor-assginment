@@ -13,7 +13,7 @@ import logo from 'images/droppe-logo.png'
 import img1 from 'images/img1.png'
 import img2 from 'images/img2.png'
 
-export class ShopApp extends React.Component<
+class App extends React.Component<
 	{},
 	{
 		products: any[]
@@ -210,3 +210,5 @@ export class ShopApp extends React.Component<
 		)
 	}
 }
+
+export default App
