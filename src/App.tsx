@@ -14,6 +14,20 @@ import logo from 'images/droppe-logo.png'
 import img1 from 'images/img1.png'
 import img2 from 'images/img2.png'
 
+const DisplayImage = () => (
+	<section
+		className={['container', styles.main].join(' ')}
+		style={{
+			margin: '50px inherit',
+			display: 'flex',
+			justifyContent: 'space-evenly',
+		}}
+	>
+		<img src={img1} style={{ maxHeight: '15em', display: 'block' }} />
+		<img src={img2} style={{ maxHeight: '15rem', display: 'block' }} />
+	</section>
+)
+
 class App extends React.Component<
 	{},
 	{
@@ -128,21 +142,10 @@ class App extends React.Component<
 	render() {
 		const { products, isOpen } = this.state
 		return (
-			<React.Fragment>
+			<>
 				<Header />
-				<>
-					<span
-						className={['container', styles.main].join(' ')}
-						style={{
-							margin: '50px inherit',
-							display: 'flex',
-							justifyContent: 'space-evenly',
-						}}
-					>
-						<img src={img1} style={{ maxHeight: '15em', display: 'block' }} />
-						<img src={img2} style={{ maxHeight: '15rem', display: 'block' }} />
-					</span>
-				</>
+
+				<DisplayImage />
 
 				<div
 					className={['container', styles.main].join(' ')}
@@ -202,7 +205,7 @@ class App extends React.Component<
 						</div>
 					</Modal>
 				</>
-			</React.Fragment>
+			</>
 		)
 	}
 }
