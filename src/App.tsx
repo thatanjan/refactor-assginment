@@ -4,8 +4,9 @@ import Modal from 'react-modal'
 import { FaTimes } from 'react-icons/fa'
 
 import { Button } from 'components/Button/Button'
-import ProductList from 'components/Product/ProductList'
 import { Form } from 'components/Form/Form'
+import ProductList from 'components/Product/ProductList'
+import Header from 'components/Header/Header'
 
 import styles from 'App.module.css'
 
@@ -128,12 +129,7 @@ class App extends React.Component<
 		const { products, isOpen } = this.state
 		return (
 			<React.Fragment>
-				<div className={styles.header}>
-					<div className={['container', styles.headerImageWrapper].join(' ')}>
-						<img src={logo} className={styles.headerImage} />
-					</div>
-				</div>
-
+				<Header />
 				<>
 					<span
 						className={['container', styles.main].join(' ')}
