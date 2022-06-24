@@ -1,5 +1,4 @@
 import * as React from 'react'
-import lodash from 'lodash'
 import { FaStar } from 'react-icons/fa'
 import { nanoid } from 'nanoid'
 
@@ -11,24 +10,24 @@ interface ProductListProps {
 	products: Product[]
 }
 
-export const ProductCard: React.FC<{
+interface ProductCardProps extends Product {
 	index: number
-	product: {
-		title: string
-		description: string
-		price: number
-		isFavorite: boolean
-		rating: { rate: number; count: number }
-	}
-	onFav: (title: string) => void
-}> = ({ product, onFav }) => {
+}
+
+const ProductCard = ({
+	index,
+	title,
+	rating: { rate },
+	price,
+	description,
+	isFavorite,
+}: ProductCardProps) => {
 	const {
 		product: productClass,
 		productBody,
 		actionBarItem,
 		actionBarItemLabel,
 	} = styles
-	// Problem: Now product title can be too long, I just put overflowX as fix now
 	return (
 		<span
 			className={productClass}
@@ -40,15 +39,17 @@ export const ProductCard: React.FC<{
 			}}
 		>
 			<span className={styles['product-title']} style={{ overflowX: 'hidden' }}>
-				{product.title}
+				{title}
 			</span>
 
-			<p>
-				<strong>Rating: {product.rating ? `${product.rating.rate}/5` : ''}</strong>
-			</p>
+			{rate !== undefined && (
+				<p>
+					<strong>Rating: {rate}/5</strong>
+				</p>
+			)}
 
 			<p>
-				<b>Price: ${+product.price}</b>
+				<b>Price: ${price}</b>
 			</p>
 
 			<p className={productBody}>
@@ -56,23 +57,20 @@ export const ProductCard: React.FC<{
 					<b>Description:</b>
 				</span>
 				<br />
-				{product.description}
+				{description}
 			</p>
 
 			<span
-				className={styles['action_bar']}
+				className={styles.action_bar}
 				style={{ display: 'table', width: '100%' }}
 			>
 				<span
-					className={`${actionBarItem} ${product.isFavorite ? 'active' : ''}`}
+					className={`${actionBarItem} ${isFavorite ? 'active' : ''}`}
 					role='button'
-					onClick={() => {
-						onFav(product.title)
-					}}
 				>
 					<FaStar />{' '}
 					<span className={actionBarItemLabel}>
-						{!!!!product.isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+						{isFavorite ? 'Remove from favorites' : 'Add to favorites'}
 					</span>
 				</span>
 			</span>
@@ -81,6 +79,8 @@ export const ProductCard: React.FC<{
 }
 
 const ProductList = ({ products }: ProductListProps) =>
-	products.map((product, index) => <ProductCard key={nanoid()} {...product} />)
+	products.map((product, index) => (
+		<ProductCard index={index} key={nanoid()} {...product} />
+	))
 
 export default ProductList
