@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, Dispatch, SetStateAction } from 'react'
+import React, { useState, useRef, ChangeEvent } from 'react'
 
 import Button from 'components/Button/Button'
 
@@ -26,16 +26,13 @@ const Input = ({ type = 'text', ...props }: InputProps) => (
 )
 
 const Form = ({ addProduct }: FormProps) => {
-	let formRef = React.useRef<HTMLFormElement>(null)
-	let titleRef = React.useRef<HTMLInputElement>(null)
-	let priceRef = React.useRef<HTMLInputElement>(null)
-	let descriptionRef = React.useRef<HTMLTextAreaElement>(null)
-
-	const [formData, setFormData] = useState<AddProductPayload>({
+	const initialFormData = {
 		title: '',
 		price: 0,
 		description: '',
-	})
+	}
+
+	const [formData, setFormData] = useState<AddProductPayload>(initialFormData)
 
 	const handleChange = (e: InputChangeEvent) => {
 		e.persist()
@@ -49,29 +46,13 @@ const Form = ({ addProduct }: FormProps) => {
 	const handleSubmit = (e: any) => {
 		e.preventDefault()
 
-		if (!titleRef.current?.value) {
-			alert('Your product needs a title')
-
-			return
-		}
-
-		if (!descriptionRef.current?.value || !priceRef.current?.value) {
-			alert('Your product needs some content')
-
-			return
-		}
-
 		addProduct(formData)
 
-		formRef.current?.reset()
+		setFormData(initialFormData)
 	}
 
 	return (
-		<form
-			className={styles.form}
-			onSubmit={event => handleSubmit(event)}
-			ref={formRef}
-		>
+		<form className={styles.form} onSubmit={event => handleSubmit(event)}>
 			<span className={styles.label}>Product title: *</span>
 
 			<Input
