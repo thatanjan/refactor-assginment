@@ -13,3 +13,5 @@ export interface Product extends AddProductPayload {
 		count: number
 	}
 }
+
+export type Products = Product[]
