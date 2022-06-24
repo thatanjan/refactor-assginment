@@ -1,7 +1,7 @@
 export interface AddProductPayload {
 	title: string
 	description: string
-	price: string
+	price: number
 }
 
 export type AddProduct = (_: AddProductPayload) => void
