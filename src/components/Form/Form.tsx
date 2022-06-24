@@ -1,8 +1,8 @@
-import * as React from 'react'
+import React, { useState } from 'react'
 
 import Button from 'components/Button/Button'
 
-import { AddProduct } from 'types/product'
+import { AddProduct, AddProductPayload } from 'types/product'
 
 import styles from './Form.module.css'
 
@@ -15,6 +15,23 @@ const Form = ({ addProduct }: FormProps) => {
 	let titleRef = React.useRef<HTMLInputElement>(null)
 	let priceRef = React.useRef<HTMLInputElement>(null)
 	let descriptionRef = React.useRef<HTMLTextAreaElement>(null)
+
+	const [formData, setFormData] = useState<AddProductPayload>({
+		title: '',
+		price: 0,
+		description: '',
+	})
+
+	const handleChange = (
+		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+	) => {
+		e.persist()
+
+		setFormData(prev => {
+			const { name, value } = e.target
+			return { ...prev, [name]: value }
+		})
+	}
 
 	const handleSubmit = (e: any) => {
 		e.preventDefault()
@@ -31,11 +48,7 @@ const Form = ({ addProduct }: FormProps) => {
 			return
 		}
 
-		addProduct({
-			title: titleRef.current && titleRef.current.value,
-			description: descriptionRef.current && descriptionRef.current.value,
-			price: priceRef.current && priceRef.current.value,
-		})
+		addProduct(formData)
 
 		formRef.current?.reset()
 	}
@@ -49,26 +62,30 @@ const Form = ({ addProduct }: FormProps) => {
 			<span className={styles.label}>Product title: *</span>
 
 			<input
-				ref={titleRef}
+				value={formData.title}
 				placeholder='Title...'
-				defaultValue=''
 				className={styles.input}
+				onChange={handleChange}
+				name='title'
 			/>
 
 			<span className={styles.label}>Product details: *</span>
 
 			<input
-				ref={priceRef}
+				value={formData.price}
 				placeholder='Price...'
-				defaultValue=''
 				className={styles.input}
+				name='price'
+				onChange={handleChange}
+				type='number'
 			/>
 
 			<textarea
-				ref={descriptionRef}
+				value={formData.description}
 				placeholder='Start typing product description here...'
-				defaultValue=''
 				className={styles.textarea}
+				name='description'
+				onChange={handleChange}
 			/>
 
 			<Button>Add a product</Button>
