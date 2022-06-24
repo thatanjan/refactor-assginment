@@ -3,7 +3,7 @@ import React, { useState, useMemo } from 'react'
 import Button from 'components/Button/Button'
 import Modal from 'components/Modal/Modal'
 
-import { Product } from 'types/product'
+import { Product, AddProduct } from 'types/product'
 
 import styles from './DisplayProducts.module.css'
 
@@ -41,7 +41,7 @@ const DisplayProducts = (props: Props) => {
 
 	const openModal = () => setIsModalOpen(true)
 	const closeModal = () => setIsModalOpen(false)
-	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {}
+	const addProduct: AddProduct = product => {}
 
 	const totalProducts = products.length
 
@@ -55,7 +55,7 @@ const DisplayProducts = (props: Props) => {
 		totalFavorites,
 	}
 
-	const modalProps = { isModalOpen, closeModal, handleSubmit }
+	const modalProps = { isModalOpen, closeModal, addProduct }
 
 	return (
 		<div>

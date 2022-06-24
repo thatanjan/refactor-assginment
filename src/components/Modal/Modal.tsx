@@ -2,6 +2,8 @@ import * as React from 'react'
 import ReactModal from 'react-modal'
 import { FaTimes } from 'react-icons/fa'
 
+import { AddProduct } from 'types/product'
+
 import Form from 'components/Form/Form'
 
 import styles from './Modal.module.css'
@@ -9,10 +11,10 @@ import styles from './Modal.module.css'
 interface Props {
 	isModalOpen: boolean
 	closeModal: () => void
-	handleSubmit: (_: React.FormEvent<HTMLFormElement>) => void
+	addProduct: AddProduct
 }
 
-const Modal = ({ isModalOpen, closeModal, handleSubmit }: Props) => (
+const Modal = ({ isModalOpen, closeModal, addProduct }: Props) => (
 	<ReactModal
 		isOpen={isModalOpen}
 		className={styles.reactModalContent}
@@ -23,7 +25,7 @@ const Modal = ({ isModalOpen, closeModal, handleSubmit }: Props) => (
 				<FaTimes />
 			</button>
 
-			{/* <Form handleSubmit={handleSubmit} /> */}
+			<Form addProduct={addProduct} />
 		</div>
 	</ReactModal>
 )
