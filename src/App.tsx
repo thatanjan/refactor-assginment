@@ -10,7 +10,6 @@ import Header from 'components/Header/Header'
 
 import styles from 'App.module.css'
 
-import logo from 'images/droppe-logo.png'
 import img1 from 'images/img1.png'
 import img2 from 'images/img2.png'
 
@@ -142,7 +141,7 @@ class App extends React.Component<
 	render() {
 		const { products, isOpen } = this.state
 		return (
-			<>
+			<main className={styles.container}>
 				<Header />
 
 				<DisplayImage />
@@ -205,7 +204,7 @@ class App extends React.Component<
 						</div>
 					</Modal>
 				</>
-			</>
+			</main>
 		)
 	}
 }
