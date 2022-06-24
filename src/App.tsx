@@ -1,7 +1,6 @@
 import * as React from 'react'
 import lodash from 'lodash'
 
-import ProductList from 'components/Product/ProductList'
 import Header from 'components/Header/Header'
 import DisplayProducts from 'components/DisplayProducts/DisplayProducts'
 
@@ -49,25 +48,6 @@ class App extends React.Component<
 			numFavorites: 0,
 			prodCount: 0,
 		}
-
-		fetch('https://fakestoreapi.com/products').then(response => {
-			let jsonResponse = response.json()
-
-			jsonResponse.then(rawData => {
-				let data = []
-
-				for (let i = 0; i < rawData.length; i++) {
-					let updatedProd = rawData[i]
-					data.push(updatedProd)
-				}
-				this.setState({
-					products: data,
-				})
-				this.setState({
-					prodCount: data.length,
-				})
-			})
-		})
 	}
 
 	componentDidMount() {
