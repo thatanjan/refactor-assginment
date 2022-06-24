@@ -50,10 +50,6 @@ class App extends React.Component<
 		}
 	}
 
-	componentDidMount() {
-		document.title = 'Droppe refactor app'
-	}
-
 	favClick(title: string) {
 		const prods = this.state.products
 		const idx = lodash.findIndex(prods, { title: title })
