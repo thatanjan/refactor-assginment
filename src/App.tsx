@@ -3,10 +3,11 @@ import lodash from 'lodash'
 import Modal from 'react-modal'
 import { FaTimes } from 'react-icons/fa'
 
-import { Button } from 'components/Button/Button'
-import { Form } from 'components/Form/Form'
+// import { Button } from 'components/Button/Button'
+// import { Form } from 'components/Form/Form'
 import ProductList from 'components/Product/ProductList'
 import Header from 'components/Header/Header'
+import DisplayProducts from 'components/DisplayProducts/DisplayProducts'
 
 import styles from 'App.module.css'
 
@@ -146,19 +147,21 @@ class App extends React.Component<
 
 				<DisplayImage />
 
+				<DisplayProducts />
+
 				<div className={styles.main} style={{ paddingTop: 0 }}>
 					<div className={styles.buttonWrapper}>
-						<span role='button'>
-							<Button
-								onClick={function (this: any) {
-									this.setState({
-										isOpen: true,
-									})
-								}.bind(this)}
-							>
-								Send product proposal
-							</Button>
-						</span>
+						{/* <span role='button'> */}
+						{/* 	<Button */}
+						{/* 		onClick={function (this: any) { */}
+						{/* 			this.setState({ */}
+						{/* 				isOpen: true, */}
+						{/* 			}) */}
+						{/* 		}.bind(this)} */}
+						{/* 	> */}
+						{/* 		Send product proposal */}
+						{/* 	</Button> */}
+						{/* </span> */}
 						{this.state.isShowingMessage && (
 							<div className={styles.messageContainer}>
 								<i>{this.state.message}</i>
@@ -197,7 +200,7 @@ class App extends React.Component<
 								<FaTimes />
 							</div>
 
-							<Form on-submit={this.onSubmit} />
+							{/* <Form on-submit={this.onSubmit} /> */}
 						</div>
 					</Modal>
 				</>
