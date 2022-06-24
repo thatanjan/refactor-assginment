@@ -2,17 +2,15 @@ import * as React from 'react'
 
 import Button from 'components/Button/Button'
 
+import { AddProduct } from 'types/product'
+
 import styles from './Form.module.css'
 
-type IFormProps = {
-	'on-submit': (payload: {
-		title: string
-		description: string
-		price: string
-	}) => void
+interface FormProps {
+	addProduct: AddProduct
 }
 
-const Form: React.FC<IFormProps> = props => {
+const Form = ({ addProduct }: FormProps) => {
 	let formRef = React.useRef<HTMLFormElement>(null)
 	let titleRef = React.useRef<HTMLInputElement>(null)
 	let priceRef = React.useRef<HTMLInputElement>(null)
@@ -33,7 +31,7 @@ const Form: React.FC<IFormProps> = props => {
 			return
 		}
 
-		props['on-submit']({
+		addProduct({
 			title: titleRef.current && titleRef.current.value,
 			description: descriptionRef.current && descriptionRef.current.value,
 			price: priceRef.current && priceRef.current.value,
