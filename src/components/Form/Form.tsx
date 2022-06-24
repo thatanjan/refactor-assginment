@@ -12,7 +12,7 @@ type IFormProps = {
 	}) => void
 }
 
-export const Form: React.FC<IFormProps> = props => {
+const Form: React.FC<IFormProps> = props => {
 	let formRef = React.useRef<HTMLFormElement>(null)
 	let titleRef = React.useRef<HTMLInputElement>(null)
 	let priceRef = React.useRef<HTMLInputElement>(null)
@@ -77,3 +77,5 @@ export const Form: React.FC<IFormProps> = props => {
 		</form>
 	)
 }
+
+export default Form
