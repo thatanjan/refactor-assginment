@@ -40,13 +40,27 @@ const DisplayProducts = (props: Props) => {
 	const [alertMessage, setAlertMessage] = useState('')
 
 	useEffect(() => {
+		const handleError = () => {
+			setAlertMessage('Error: could not load products')
+			setTimeout(() => setAlertMessage(''), 5000)
+		}
+
 		;(async () => {
-			const url = 'https://fakestoreapi.com/products'
+			try {
+				const url = 'https://fakestoreapi.com/products'
 
-			const response = await fetch(url)
-			const jsonResponse = (await response.json()) as Products
+				const response = await fetch('')
 
-			setProducts(jsonResponse.reverse())
+				if (!response.ok) return handleError()
+
+				const jsonResponse = (await response.json()) as Products
+
+				setProducts(jsonResponse.reverse())
+
+				return true
+			} catch (error) {
+				return handleError()
+			}
 		})()
 	}, [])
 
