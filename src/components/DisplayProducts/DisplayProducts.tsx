@@ -1,9 +1,9 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 
 import Button from 'components/Button/Button'
 import Modal from 'components/Modal/Modal'
 
-import { Product, AddProduct } from 'types/product'
+import { Product, AddProduct, Products } from 'types/product'
 
 import styles from './DisplayProducts.module.css'
 
@@ -38,6 +38,17 @@ const DisplayProducts = (props: Props) => {
 	const [products, setProducts] = useState<Product[]>([])
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [alertMessage, setAlertMessage] = useState('')
+
+	useEffect(() => {
+		;(async () => {
+			const url = 'https://fakestoreapi.com/products'
+
+			const response = await fetch(url)
+			const jsonResponse = (await response.json()) as Products
+
+			setProducts(jsonResponse.reverse())
+		})()
+	}, [])
 
 	const openModal = () => setIsModalOpen(true)
 	const closeModal = () => setIsModalOpen(false)
