@@ -1,4 +1,4 @@
-import React, { useState, useRef, ChangeEvent } from 'react'
+import React, { useState, ChangeEvent, FormEventHandler } from 'react'
 
 import Button from 'components/Button/Button'
 
@@ -43,7 +43,7 @@ const Form = ({ addProduct }: FormProps) => {
 		})
 	}
 
-	const handleSubmit = (e: any) => {
+	const handleSubmit: FormEventHandler<HTMLFormElement> = e => {
 		e.preventDefault()
 
 		addProduct(formData)
@@ -52,7 +52,7 @@ const Form = ({ addProduct }: FormProps) => {
 	}
 
 	return (
-		<form className={styles.form} onSubmit={event => handleSubmit(event)}>
+		<form className={styles.form} onSubmit={handleSubmit}>
 			<span className={styles.label}>Product title: *</span>
 
 			<Input
