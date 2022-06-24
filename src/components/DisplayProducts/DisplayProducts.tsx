@@ -3,6 +3,8 @@ import React, { useState, useMemo } from 'react'
 import Button from 'components/Button/Button'
 import Modal from 'components/Modal/Modal'
 
+import { Product } from 'types/product'
+
 import styles from './DisplayProducts.module.css'
 
 type Props = {}
@@ -15,10 +17,6 @@ interface SendButtonProps {
 interface ProductStatsProps {
 	totalProducts: number
 	totalFavorites: number
-}
-
-interface Product {
-	isFavorite: boolean
 }
 
 const SendButton = ({ openModal, alertMessage }: SendButtonProps) => (
