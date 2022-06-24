@@ -162,18 +162,18 @@ class App extends React.Component<
 						{/* 		Send product proposal */}
 						{/* 	</Button> */}
 						{/* </span> */}
-						{this.state.isShowingMessage && (
-							<div className={styles.messageContainer}>
-								<i>{this.state.message}</i>
-							</div>
-						)}
+						{/* {this.state.isShowingMessage && ( */}
+						{/* 	<div className={styles.messageContainer}> */}
+						{/* 		<i>{this.state.message}</i> */}
+						{/* 	</div> */}
+						{/* )} */}
 					</div>
 
-					<div className={styles.statsContainer}>
-						<span>Total products: {this.state.prodCount}</span>
-						{' - '}
-						<span>Number of favorites: {this.state.numFavorites}</span>
-					</div>
+					{/* <div className={styles.statsContainer}> */}
+					{/* 	<span>Total products: {this.state.prodCount}</span> */}
+					{/* 	{' - '} */}
+					{/* 	<span>Number of favorites: {this.state.numFavorites}</span> */}
+					{/* </div> */}
 
 					{products && !!products.length ? (
 						<ProductList products={products} onFav={this.favClick} />
