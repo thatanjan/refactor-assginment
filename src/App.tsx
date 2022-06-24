@@ -15,7 +15,7 @@ import img2 from 'images/img2.png'
 
 const DisplayImage = () => (
 	<section
-		className={['container', styles.main].join(' ')}
+		className={styles.main}
 		style={{
 			margin: '50px inherit',
 			display: 'flex',
@@ -146,10 +146,7 @@ class App extends React.Component<
 
 				<DisplayImage />
 
-				<div
-					className={['container', styles.main].join(' ')}
-					style={{ paddingTop: 0 }}
-				>
+				<div className={styles.main} style={{ paddingTop: 0 }}>
 					<div className={styles.buttonWrapper}>
 						<span role='button'>
 							<Button
