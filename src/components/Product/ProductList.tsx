@@ -1,30 +1,17 @@
 import * as React from 'react'
 import lodash from 'lodash'
 import { FaStar } from 'react-icons/fa'
+import { nanoid } from 'nanoid'
+
+import { Product } from 'types/product'
 
 import styles from './ProductList.module.css'
 
-interface IPostsProps {
-	products: any
-	onFav: (title: string) => void
+interface ProductListProps {
+	products: Product[]
 }
 
-export default class Posts extends React.Component<IPostsProps, {}> {
-	constructor(props: any) {
-		super(props)
-	}
-	render() {
-		let productsarr = []
-		for (const [i, p] of this.props.products.entries()) {
-			productsarr.push(
-				<Product key={i} index={i} product={p} onFav={this.props.onFav} />
-			)
-		}
-		return <div>{lodash.reverse(productsarr)}</div>
-	}
-}
-
-export const Product: React.FC<{
+export const ProductCard: React.FC<{
 	index: number
 	product: {
 		title: string
@@ -92,3 +79,8 @@ export const Product: React.FC<{
 		</span>
 	)
 }
+
+const ProductList = ({ products }: ProductListProps) =>
+	products.map((product, index) => <ProductCard key={nanoid()} {...product} />)
+
+export default ProductList
