@@ -1,6 +1,8 @@
 import React, { useState, useMemo } from 'react'
 
 import Button from 'components/Button/Button'
+import Modal from 'components/Modal/Modal'
+
 import styles from './DisplayProducts.module.css'
 
 type Props = {}
@@ -40,6 +42,8 @@ const DisplayProducts = (props: Props) => {
 	const [alertMessage, setAlertMessage] = useState('')
 
 	const openModal = () => setIsModalOpen(true)
+	const closeModal = () => setIsModalOpen(false)
+	const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {}
 
 	const totalProducts = products.length
 
@@ -53,9 +57,14 @@ const DisplayProducts = (props: Props) => {
 		totalFavorites,
 	}
 
+	const modalProps = { isModalOpen, closeModal, handleSubmit }
+
 	return (
 		<div>
 			<SendButton alertMessage={alertMessage} openModal={openModal} />
+
+			{isModalOpen && <Modal {...modalProps} />}
+
 			<ProductStats {...productStatsProps} />
 		</div>
 	)
