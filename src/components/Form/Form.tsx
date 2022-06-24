@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, ChangeEvent, Dispatch, SetStateAction } from 'react'
 
 import Button from 'components/Button/Button'
 
@@ -9,6 +9,21 @@ import styles from './Form.module.css'
 interface FormProps {
 	addProduct: AddProduct
 }
+
+type InputChangeEvent = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+
+interface InputProps {
+	value: string | number
+	placeholder: string
+	// eslint-disable-next-line react/require-default-props
+	type?: 'text' | 'number'
+	onChange: (_: InputChangeEvent) => void
+	name: string
+}
+
+const Input = ({ type = 'text', ...props }: InputProps) => (
+	<input type={type} className={styles.input} {...props} />
+)
 
 const Form = ({ addProduct }: FormProps) => {
 	let formRef = React.useRef<HTMLFormElement>(null)
@@ -22,9 +37,7 @@ const Form = ({ addProduct }: FormProps) => {
 		description: '',
 	})
 
-	const handleChange = (
-		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-	) => {
+	const handleChange = (e: InputChangeEvent) => {
 		e.persist()
 
 		setFormData(prev => {
@@ -61,20 +74,18 @@ const Form = ({ addProduct }: FormProps) => {
 		>
 			<span className={styles.label}>Product title: *</span>
 
-			<input
+			<Input
 				value={formData.title}
 				placeholder='Title...'
-				className={styles.input}
 				onChange={handleChange}
 				name='title'
 			/>
 
 			<span className={styles.label}>Product details: *</span>
 
-			<input
+			<Input
 				value={formData.price}
 				placeholder='Price...'
-				className={styles.input}
 				name='price'
 				onChange={handleChange}
 				type='number'
