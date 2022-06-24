@@ -51,7 +51,12 @@
 				"tsx": "never"
 			}
 		],
-		"no-unused-vars": "warn",
+		"no-unused-vars": [
+			"error",
+			{
+				"argsIgnorePattern": "^_"
+			}
+		],
 		"react/jsx-props-no-spreading": "off",
 		"no-param-reassign": [
 			"error",
