@@ -1,10 +1,6 @@
 import * as React from 'react'
 import lodash from 'lodash'
-import Modal from 'react-modal'
-import { FaTimes } from 'react-icons/fa'
 
-// import { Button } from 'components/Button/Button'
-// import { Form } from 'components/Form/Form'
 import ProductList from 'components/Product/ProductList'
 import Header from 'components/Header/Header'
 import DisplayProducts from 'components/DisplayProducts/DisplayProducts'
@@ -148,62 +144,6 @@ class App extends React.Component<
 				<DisplayImage />
 
 				<DisplayProducts />
-
-				<div className={styles.main} style={{ paddingTop: 0 }}>
-					<div className={styles.buttonWrapper}>
-						{/* <span role='button'> */}
-						{/* 	<Button */}
-						{/* 		onClick={function (this: any) { */}
-						{/* 			this.setState({ */}
-						{/* 				isOpen: true, */}
-						{/* 			}) */}
-						{/* 		}.bind(this)} */}
-						{/* 	> */}
-						{/* 		Send product proposal */}
-						{/* 	</Button> */}
-						{/* </span> */}
-						{/* {this.state.isShowingMessage && ( */}
-						{/* 	<div className={styles.messageContainer}> */}
-						{/* 		<i>{this.state.message}</i> */}
-						{/* 	</div> */}
-						{/* )} */}
-					</div>
-
-					{/* <div className={styles.statsContainer}> */}
-					{/* 	<span>Total products: {this.state.prodCount}</span> */}
-					{/* 	{' - '} */}
-					{/* 	<span>Number of favorites: {this.state.numFavorites}</span> */}
-					{/* </div> */}
-
-					{products && !!products.length ? (
-						<ProductList products={products} onFav={this.favClick} />
-					) : (
-						<div></div>
-					)}
-				</div>
-
-				<>
-					<Modal
-						isOpen={isOpen}
-						className={styles.reactModalContent}
-						overlayClassName={styles.reactModalOverlay}
-					>
-						<div className={styles.modalContentHelper}>
-							<div
-								className={styles.modalClose}
-								onClick={function (this: any) {
-									this.setState({
-										isOpen: false,
-									})
-								}.bind(this)}
-							>
-								<FaTimes />
-							</div>
-
-							{/* <Form on-submit={this.onSubmit} /> */}
-						</div>
-					</Modal>
-				</>
 			</main>
 		)
 	}
