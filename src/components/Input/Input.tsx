@@ -12,15 +12,17 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input = ({ labelProps, errorMessageProps, ...props }: InputProps) => {
-	const { id } = props
+	const { id, component } = props
+
+	const className = styles[component as string]
 
 	return (
 		<div>
-			{props.component === 'input' && (
+			{component === 'input' && (
 				<label className={styles.label} htmlFor={id} {...labelProps} />
 			)}
 
-			<Field className={styles.input} name={id} {...props} />
+			<Field className={className} name={id} {...props} />
 
 			<ErrorMessage name={id} component='div' {...errorMessageProps} />
 		</div>

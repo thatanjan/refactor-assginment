@@ -71,7 +71,6 @@ const CusomForm = ({ addProduct }: FormProps) => {
 					<Input
 						component='textarea'
 						placeholder='Start typing product description here...'
-						className={styles.textarea}
 						id='description'
 					/>
 
