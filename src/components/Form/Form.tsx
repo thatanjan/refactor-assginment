@@ -15,15 +15,18 @@ type InputChangeEvent = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 interface InputProps {
 	value: string | number
 	placeholder: string
-	// eslint-disable-next-line react/require-default-props
 	type?: 'text' | 'number'
 	onChange: (_: InputChangeEvent) => void
 	name: string
 }
 
-const Input = ({ type = 'text', ...props }: InputProps) => (
-	<input type={type} className={styles.input} {...props} />
+const Input = (props: InputProps) => (
+	<input className={styles.input} {...props} />
 )
+
+Input.defaultProps = {
+	type: 'text',
+}
 
 const Form = ({ addProduct }: FormProps) => {
 	const initialFormData = {
