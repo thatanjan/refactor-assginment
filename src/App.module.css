@@ -66,8 +66,5 @@
 	padding: 4rem 0;
 	display: flex;
 	justify-content: space-evenly;
-	height: 15rem;
-}
-
-.image__container img {
+	height: 25rem;
 }
