@@ -74,7 +74,9 @@ const CusomForm = ({ addProduct }: FormProps) => {
 						id='description'
 					/>
 
-					<Button type='submit'>Add a product</Button>
+					<Button disabled={isSubmitting} type='submit'>
+						Add a product
+					</Button>
 				</Form>
 			)}
 		</Formik>
