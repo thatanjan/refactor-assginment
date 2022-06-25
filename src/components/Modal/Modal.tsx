@@ -17,16 +17,14 @@ interface Props {
 const Modal = ({ isModalOpen, closeModal, addProduct }: Props) => (
 	<ReactModal
 		isOpen={isModalOpen}
-		className={styles.reactModalContent}
+		className={styles.react__Modal}
 		overlayClassName={styles.reactModalOverlay}
 	>
-		<div className={styles.modalContentHelper}>
-			<button type='button' className={styles.modalClose} onClick={closeModal}>
-				<FaTimes />
-			</button>
+		<button type='button' className={styles.modalClose} onClick={closeModal}>
+			<FaTimes />
+		</button>
 
-			<Form addProduct={addProduct} />
-		</div>
+		<Form addProduct={addProduct} />
 	</ReactModal>
 )
 

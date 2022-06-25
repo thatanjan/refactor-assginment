@@ -1,19 +1,15 @@
-.reactModalContent {
+.react__Modal {
 	font-family: 'Open Sans';
-	position: absolute;
-	top: 120px;
-	left: 0;
-	right: 0;
-	bottom: 120px;
-	width: 750px;
-	height: auto;
-	margin: 0 auto;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 90%;
+	max-width: 80rem;
 	background: #ffffff;
 	border: none;
-	border-radius: 0;
-	outline: none;
-	padding: 24px;
-	overflow: auto;
+	border-radius: 1.5rem;
+	padding: 3rem;
 }
 
 .reactModalOverlay {
