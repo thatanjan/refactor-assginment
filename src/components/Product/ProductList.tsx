@@ -34,12 +34,12 @@ const ProductCard = ({
 
 			{rate !== undefined && (
 				<p>
-					<strong>Rating: {rate}/5</strong>
+					<strong>Rating:</strong> <span> {rate}/5</span>
 				</p>
 			)}
 
 			<p>
-				<b>Price: ${price}</b>
+				<strong>Price: </strong> <span>${price}</span>
 			</p>
 
 			<p className={productBody}>
