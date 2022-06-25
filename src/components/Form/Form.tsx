@@ -58,14 +58,14 @@ const CusomForm = ({ addProduct }: FormProps) => {
 					<Input
 						placeholder='Title...'
 						id='title'
-						labelProps={{ children: 'Product Title: *' }}
+						labelProps={{ children: 'Title: *' }}
 					/>
 
 					<Input
 						placeholder='Price...'
 						id='price'
 						type='number'
-						labelProps={{ children: 'Product Price: *' }}
+						labelProps={{ children: 'Price: *' }}
 					/>
 
 					<Input
