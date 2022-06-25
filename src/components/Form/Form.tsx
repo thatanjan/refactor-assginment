@@ -1,12 +1,7 @@
-import React, {
-	useState,
-	ChangeEvent,
-	FormEventHandler,
-	InputHTMLAttributes,
-	LabelHTMLAttributes,
-} from 'react'
+import React, { useState, ChangeEvent, FormEventHandler } from 'react'
 
 import Button from 'components/Button/Button'
+import Input from 'components/Input/Input'
 
 import { AddProduct, AddProductPayload } from 'types/product'
 
@@ -17,25 +12,6 @@ interface FormProps {
 }
 
 type InputChangeEvent = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-	type?: 'text' | 'number'
-}
-
-const Input = (props: InputProps) => (
-	<input className={styles.input} {...props} />
-)
-
-Input.defaultProps = {
-	type: 'text',
-}
-
-const InputLabel = ({
-	htmlFor,
-	...props
-}: LabelHTMLAttributes<HTMLLabelElement>) => (
-	<label className={styles.label} {...props} htmlFor={htmlFor} />
-)
 
 const Form = ({ addProduct }: FormProps) => {
 	const initialFormData = {
@@ -70,24 +46,21 @@ const Form = ({ addProduct }: FormProps) => {
 
 	return (
 		<form className={styles.form} onSubmit={handleSubmit}>
-			<InputLabel htmlFor='title'>Product title: *</InputLabel>
-
 			<Input
 				value={formData.title}
 				placeholder='Title...'
 				onChange={handleChange}
-				name='title'
 				id='title'
+				labelProps={{ children: 'Product Title: *' }}
 			/>
-
-			<InputLabel htmlFor='title'>Product details: *</InputLabel>
 
 			<Input
 				value={formData.price}
 				placeholder='Price...'
-				name='price'
+				id='price'
 				onChange={handleChange}
 				type='number'
+				labelProps={{ children: 'Product Price: *' }}
 			/>
 
 			<textarea
