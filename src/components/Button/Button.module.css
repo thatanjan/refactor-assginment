@@ -4,7 +4,7 @@
 	color: #ffffff;
 	font-size: 2rem;
 	font-size: 1.8rem;
-	background-color: #62bfad;
+	background-color: var(--logo-color);
 	border-radius: 1rem;
 	width: 100%;
 	padding: 1.2rem;

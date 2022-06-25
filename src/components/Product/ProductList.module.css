@@ -51,7 +51,7 @@
 }
 
 .action__button:global(.favorite) {
-	color: #62bfad;
+	color: var(--logo-color);
 }
 
 .action__button__label {
