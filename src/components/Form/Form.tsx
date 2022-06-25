@@ -1,5 +1,5 @@
-import React, { useState, ChangeEvent, FormEventHandler } from 'react'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
+import React from 'react'
+import { Formik, Form } from 'formik'
 
 import Button from 'components/Button/Button'
 import Input from 'components/Input/Input'
@@ -12,37 +12,11 @@ interface FormProps {
 	addProduct: AddProduct
 }
 
-type InputChangeEvent = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-
 const CusomForm = ({ addProduct }: FormProps) => {
 	const initialFormData: AddProductPayload = {
 		title: '',
 		price: 0,
 		description: '',
-	}
-
-	const [formData, setFormData] = useState<AddProductPayload>(initialFormData)
-
-	const handleChange = (e: InputChangeEvent) => {
-		e.persist()
-
-		setFormData(prev => {
-			const { name, value: currentValue } = e.target
-
-			let value: string | number = currentValue
-
-			if (name === 'price') value = parseFloat(value) || 0
-
-			return { ...prev, [name]: value }
-		})
-	}
-
-	const handleSubmit: FormEventHandler<HTMLFormElement> = e => {
-		e.preventDefault()
-
-		addProduct(formData)
-
-		setFormData(initialFormData)
 	}
 
 	return (
