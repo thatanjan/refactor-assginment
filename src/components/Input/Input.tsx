@@ -17,8 +17,12 @@ const Input = ({ labelProps, errorMessageProps, ...props }: InputProps) => {
 
 	return (
 		<div>
-			<label className={styles.label} htmlFor={id} {...labelProps} />
+			{props.component === 'input' && (
+				<label className={styles.label} htmlFor={id} {...labelProps} />
+			)}
+
 			<Field className={styles.input} name={id} {...props} />
+
 			<ErrorMessage name={id} component='div' {...errorMessageProps} />
 		</div>
 	)
