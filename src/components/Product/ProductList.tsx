@@ -42,7 +42,7 @@ const ProductCard = ({
 				<strong>Price: </strong> <span>${price}</span>
 			</p>
 
-			<p className={productBody}>
+			<p className={styles.product__description}>
 				<strong>Description:</strong> <span>{description}</span>
 			</p>
 
