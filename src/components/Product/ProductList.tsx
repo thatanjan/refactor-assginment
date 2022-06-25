@@ -34,15 +34,7 @@ const ProductCard = ({
 		actionBarItemLabel,
 	} = styles
 	return (
-		<span
-			className={productClass}
-			style={{
-				display: 'inline-block',
-				overflowX: 'scroll',
-				float: 'none',
-				clear: 'both',
-			}}
-		>
+		<article className={productClass}>
 			<h2 className={styles.product__title}>{title}</h2>
 
 			{rate !== undefined && (
@@ -74,7 +66,7 @@ const ProductCard = ({
 					</span>
 				</button>
 			</div>
-		</span>
+		</article>
 	)
 }
 
