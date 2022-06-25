@@ -6,7 +6,7 @@ import { Product } from 'types/product'
 
 import styles from './ProductList.module.css'
 
-type ToggleFavorite = (index: number) => boolean
+type ToggleFavorite = (index: number) => () => boolean
 
 interface ProductListProps {
 	products: Product[]
@@ -72,7 +72,7 @@ const ProductCard = ({
 				<button
 					type='button'
 					className={`${actionBarItem} ${isFavorite ? 'active' : ''}`}
-					onClick={toggleFavorite}
+					onClick={toggleFavorite(index)}
 				>
 					<FaStar />{' '}
 					<span className={actionBarItemLabel}>

@@ -69,7 +69,7 @@ const DisplayProducts = (props: Props) => {
 	const closeModal = () => setIsModalOpen(false)
 	const addProduct: AddProduct = product => {}
 
-	const toggleFavorite = (index: number) => {
+	const toggleFavorite = (index: number) => () => {
 		const product = products[index]
 
 		product.isFavorite = !product.isFavorite
