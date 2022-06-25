@@ -50,7 +50,12 @@ const Form = ({ addProduct }: FormProps) => {
 		e.persist()
 
 		setFormData(prev => {
-			const { name, value } = e.target
+			const { name, value: currentValue } = e.target
+
+			let value: string | number = currentValue
+
+			if (name === 'price') value = parseFloat(value) || 0
+
 			return { ...prev, [name]: value }
 		})
 	}
