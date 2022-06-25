@@ -65,21 +65,21 @@ const ProductCard = ({
 				{description}
 			</p>
 
-			<span
+			<div
 				className={styles.action_bar}
 				style={{ display: 'table', width: '100%' }}
 			>
-				<span
+				<button
+					type='button'
 					className={`${actionBarItem} ${isFavorite ? 'active' : ''}`}
-					role='button'
 					onClick={toggleFavorite}
 				>
 					<FaStar />{' '}
 					<span className={actionBarItemLabel}>
 						{isFavorite ? 'Remove from favorites' : 'Add to favorites'}
 					</span>
-				</span>
-			</span>
+				</button>
+			</div>
 		</span>
 	)
 }
