@@ -21,7 +21,7 @@ const Modal = ({ isModalOpen, closeModal, addProduct }: Props) => (
 		overlayClassName={styles.modal__overlay}
 	>
 		<div className={styles.close__icon__container}>
-			<button type='button' className={styles.modalClose} onClick={closeModal}>
+			<button type='button' className={styles.modal__close} onClick={closeModal}>
 				<FaTimes />
 			</button>
 		</div>

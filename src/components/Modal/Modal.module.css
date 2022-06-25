@@ -41,7 +41,7 @@
 	justify-items: end;
 }
 
-.modalClose {
+.modal__close {
 	cursor: pointer;
 	color: black;
 	font-size: 3rem;
