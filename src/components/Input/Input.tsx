@@ -12,14 +12,14 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 	component?: 'input' | 'textarea'
 }
 
-const Input = ({ labelProps, ...props }: InputProps) => {
+const Input = ({ labelProps, errorMessageProps, ...props }: InputProps) => {
 	const { id } = props
 
 	return (
 		<div>
 			<label className={styles.label} htmlFor={id} {...labelProps} />
 			<Field className={styles.input} name={id} {...props} />
-			<ErrorMessage name={id} component='div' />
+			<ErrorMessage name={id} component='div' {...errorMessageProps} />
 		</div>
 	)
 }
