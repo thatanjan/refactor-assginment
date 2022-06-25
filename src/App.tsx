@@ -9,24 +9,9 @@ import img1 from 'images/img1.png'
 import img2 from 'images/img2.png'
 
 const DisplayImage = () => (
-	<section
-		className={styles.main}
-		style={{
-			margin: '50px inherit',
-			display: 'flex',
-			justifyContent: 'space-evenly',
-		}}
-	>
-		<img
-			alt='Droppe'
-			src={img1}
-			style={{ maxHeight: '15em', display: 'block' }}
-		/>
-		<img
-			alt='Droppe'
-			src={img2}
-			style={{ maxHeight: '15rem', display: 'block' }}
-		/>
+	<section className={styles.image__container}>
+		<img alt='Droppe' src={img1} />
+		<img alt='Droppe' src={img2} />
 	</section>
 )
 
