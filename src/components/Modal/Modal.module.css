@@ -1,5 +1,4 @@
 .react__Modal {
-	font-family: 'Open Sans';
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -17,7 +16,6 @@
 }
 
 .modal__overlay {
-	font-family: 'Open Sans';
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -25,14 +23,7 @@
 	bottom: 0;
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 999;
-	/* add blur */
 	backdrop-filter: blur(1rem);
-}
-
-.modalContentHelper {
-	position: relative;
-	height: 100%;
-	padding: 64px 0;
 }
 
 .close__icon__container {
