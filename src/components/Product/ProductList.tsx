@@ -78,9 +78,12 @@ const ProductCard = ({
 	)
 }
 
-const ProductList = ({ products }: ProductListProps) =>
-	products.map((product, index) => (
-		<ProductCard index={index} key={nanoid()} {...product} />
-	))
+const ProductList = ({ products }: ProductListProps) => (
+	<div>
+		{products.map((product, index) => (
+			<ProductCard index={index} key={nanoid()} {...product} />
+		))}
+	</div>
+)
 
 export default ProductList
