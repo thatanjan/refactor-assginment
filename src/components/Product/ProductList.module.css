@@ -2,17 +2,8 @@
 	color: #0f2137;
 	background-color: #ffffff;
 	border: 1px solid #e3e4e8;
-	padding: 16px 12px 9px;
-	border-radius: calc(1.5 * 4px);
-	width: 100%;
-	height: auto;
-	padding: 16px 24px 8px;
-	padding-right: 24px;
-	margin: inherit;
-}
-
-.product:not(:last-child) {
-	margin-bottom: 16px;
+	border-radius: 1rem;
+	padding: 3rem 4rem;
 }
 
 .product__title {

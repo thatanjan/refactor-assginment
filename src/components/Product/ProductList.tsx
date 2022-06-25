@@ -27,14 +27,9 @@ const ProductCard = ({
 	isFavorite,
 	toggleFavorite,
 }: ProductCardProps) => {
-	const {
-		product: productClass,
-		productBody,
-		actionBarItem,
-		actionBarItemLabel,
-	} = styles
+	const { productBody, actionBarItem, actionBarItemLabel } = styles
 	return (
-		<article className={productClass}>
+		<article className={styles.product}>
 			<h2 className={styles.product__title}>{title}</h2>
 
 			{rate !== undefined && (
