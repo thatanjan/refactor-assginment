@@ -29,12 +29,17 @@
 	padding: 64px 0;
 }
 
+.close__icon__container {
+	padding-bottom: 2rem;
+	display: grid;
+	justify-items: end;
+}
+
 .modalClose {
 	cursor: pointer;
-	color: rgba(0, 0, 0, 1);
-	font-size: 24px;
+	color: black;
+	font-size: 3rem;
 	line-height: 0;
-	position: absolute;
-	top: 0;
-	right: 0;
+	background: none;
+	border: none;
 }
