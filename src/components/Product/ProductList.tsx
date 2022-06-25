@@ -43,9 +43,7 @@ const ProductCard = ({
 				clear: 'both',
 			}}
 		>
-			<span className={styles['product-title']} style={{ overflowX: 'hidden' }}>
-				{title}
-			</span>
+			<h2 className={styles.product__title}>{title}</h2>
 
 			{rate !== undefined && (
 				<p>
