@@ -16,7 +16,7 @@ const DisplayImage = () => (
 )
 
 const App = () => (
-	<main className={styles.container}>
+	<main className={styles.app__container}>
 		<Header />
 
 		<DisplayImage />
