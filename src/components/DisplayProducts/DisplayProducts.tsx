@@ -42,17 +42,17 @@ const DisplayProducts = (props: Props) => {
 
 	const [totalFavorites, setTotalFavorites] = useState(0)
 
-	useEffect(() => {
-		const handleError = () => {
-			setAlertMessage('Error: could not load products')
-			setTimeout(() => setAlertMessage(''), 5000)
-		}
+	const fakestoreApiUrl = 'https://fakestoreapi.com/products'
 
+	const handleError = () => {
+		setAlertMessage('Error: could not load products')
+		setTimeout(() => setAlertMessage(''), 5000)
+	}
+
+	useEffect(() => {
 		;(async () => {
 			try {
-				const url = 'https://fakestoreapi.com/products'
-
-				const response = await fetch(url)
+				const response = await fetch(fakestoreApiUrl)
 
 				if (!response.ok) return handleError()
 
@@ -70,7 +70,29 @@ const DisplayProducts = (props: Props) => {
 
 	const openModal = () => setIsModalOpen(true)
 	const closeModal = () => setIsModalOpen(false)
-	const addProduct: AddProduct = product => {}
+
+	const addProduct: AddProduct = async product => {
+		const newProduct: Product = {
+			...product,
+			isFavorite: false,
+			rating: {
+				rate: 0,
+				count: 0,
+			},
+		}
+
+		const response = await fetch(fakestoreApiUrl, {
+			method: 'POST',
+			body: JSON.stringify(newProduct),
+		})
+
+		if (!response.ok) return handleError()
+
+		setProducts(prev => [newProduct].concat(prev))
+		setIsModalOpen(false)
+
+		return true
+	}
 
 	const toggleFavorite = (index: number) => () => {
 		const newProducts = [...products]
