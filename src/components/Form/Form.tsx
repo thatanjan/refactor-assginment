@@ -70,11 +70,12 @@ const CusomForm = ({ addProduct }: FormProps) => {
 						labelProps={{ children: 'Product Price: *' }}
 					/>
 
-					<textarea
+					<Input
+						component='textarea'
 						value={formData.description}
 						placeholder='Start typing product description here...'
 						className={styles.textarea}
-						name='description'
+						id='description'
 						onChange={handleChange}
 					/>
 
