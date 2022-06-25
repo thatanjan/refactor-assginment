@@ -2,6 +2,8 @@
 	width: 90%;
 	max-width: 75rem;
 	margin: 0 auto;
+	display: grid;
+	grid-row-gap: 2rem;
 }
 
 .buttonWrapper {
