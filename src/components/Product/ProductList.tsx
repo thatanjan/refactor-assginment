@@ -31,7 +31,7 @@ const ProductCard = ({
 	<article className={styles.product}>
 		<h2 className={styles.product__title}>{title}</h2>
 
-		{rate !== undefined && (
+		{rate > 0 && (
 			<p>
 				<strong>Rating:</strong> <span> {rate}/5</span>
 			</p>
