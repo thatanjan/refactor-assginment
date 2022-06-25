@@ -28,7 +28,7 @@
 }
 
 .action__bar {
-	border-top: 1px solid #e3e4ee;
+	border-top: 0.1rem solid #e3e4ee;
 	padding-top: 1rem;
 }
 
