@@ -1,4 +1,9 @@
-import React, { useState, ChangeEvent, FormEventHandler } from 'react'
+import React, {
+	useState,
+	ChangeEvent,
+	FormEventHandler,
+	InputHTMLAttributes,
+} from 'react'
 
 import Button from 'components/Button/Button'
 
@@ -12,12 +17,8 @@ interface FormProps {
 
 type InputChangeEvent = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 
-interface InputProps {
-	value: string | number
-	placeholder: string
+interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 	type?: 'text' | 'number'
-	onChange: (_: InputChangeEvent) => void
-	name: string
 }
 
 const Input = (props: InputProps) => (
