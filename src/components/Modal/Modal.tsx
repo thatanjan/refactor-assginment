@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import ReactModal from 'react-modal'
 import { FaTimes } from 'react-icons/fa'
 
@@ -14,20 +14,31 @@ interface Props {
 	addProduct: AddProduct
 }
 
-const Modal = ({ isModalOpen, closeModal, addProduct }: Props) => (
-	<ReactModal
-		isOpen={isModalOpen}
-		className={styles.react__Modal}
-		overlayClassName={styles.modal__overlay}
-	>
-		<div className={styles.close__icon__container}>
-			<button type='button' className={styles.modal__close} onClick={closeModal}>
-				<FaTimes />
-			</button>
-		</div>
+const Modal = ({ isModalOpen, closeModal, addProduct }: Props) => {
+	useEffect(() => {
+		const bodyStyle = document.body.style
 
-		<Form addProduct={addProduct} />
-	</ReactModal>
-)
+		bodyStyle.overflowY = 'hidden'
 
+		return () => {
+			bodyStyle.overflowY = 'auto'
+		}
+	}, [])
+
+	return (
+		<ReactModal
+			isOpen={isModalOpen}
+			className={styles.react__Modal}
+			overlayClassName={styles.modal__overlay}
+		>
+			<div className={styles.close__icon__container}>
+				<button type='button' className={styles.modal__close} onClick={closeModal}>
+					<FaTimes />
+				</button>
+			</div>
+
+			<Form addProduct={addProduct} />
+		</ReactModal>
+	)
+}
 export default Modal
