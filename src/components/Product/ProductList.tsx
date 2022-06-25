@@ -56,11 +56,7 @@ const ProductCard = ({
 			</p>
 
 			<p className={productBody}>
-				<span>
-					<b>Description:</b>
-				</span>
-				<br />
-				{description}
+				<strong>Description:</strong> <span>{description}</span>
 			</p>
 
 			<div
