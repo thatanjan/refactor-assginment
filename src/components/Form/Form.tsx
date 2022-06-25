@@ -3,6 +3,7 @@ import React, {
 	ChangeEvent,
 	FormEventHandler,
 	InputHTMLAttributes,
+	LabelHTMLAttributes,
 } from 'react'
 
 import Button from 'components/Button/Button'
@@ -28,6 +29,13 @@ const Input = (props: InputProps) => (
 Input.defaultProps = {
 	type: 'text',
 }
+
+const InputLabel = ({
+	htmlFor,
+	...props
+}: LabelHTMLAttributes<HTMLLabelElement>) => (
+	<label className={styles.label} {...props} htmlFor={htmlFor} />
+)
 
 const Form = ({ addProduct }: FormProps) => {
 	const initialFormData = {
@@ -57,16 +65,17 @@ const Form = ({ addProduct }: FormProps) => {
 
 	return (
 		<form className={styles.form} onSubmit={handleSubmit}>
-			<span className={styles.label}>Product title: *</span>
+			<InputLabel htmlFor='title'>Product title: *</InputLabel>
 
 			<Input
 				value={formData.title}
 				placeholder='Title...'
 				onChange={handleChange}
 				name='title'
+				id='title'
 			/>
 
-			<span className={styles.label}>Product details: *</span>
+			<InputLabel htmlFor='title'>Product details: *</InputLabel>
 
 			<Input
 				value={formData.price}
