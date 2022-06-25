@@ -8,8 +8,6 @@ import { Product, AddProduct, Products } from 'types/product'
 
 import styles from './DisplayProducts.module.css'
 
-type Props = {}
-
 interface SendButtonProps {
 	openModal: () => void
 	alertMessage: string
@@ -35,7 +33,7 @@ const ProductStats = ({ totalProducts, totalFavorites }: ProductStatsProps) => (
 	</div>
 )
 
-const DisplayProducts = (props: Props) => {
+const DisplayProducts = () => {
 	const [products, setProducts] = useState<Product[]>([])
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [alertMessage, setAlertMessage] = useState('')
