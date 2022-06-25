@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Button from 'components/Button/Button'
 import Modal from 'components/Modal/Modal'
@@ -19,9 +19,9 @@ interface ProductStatsProps {
 }
 
 const SendButton = ({ openModal, alertMessage }: SendButtonProps) => (
-	<div className={styles.buttonWrapper}>
+	<div className={styles.button_wrapper}>
 		<Button onClick={openModal}>Send product proposal</Button>
-		{alertMessage && <div className={styles.alertMessage}>{alertMessage}</div>}
+		{alertMessage && <div className={styles.alert_message}>{alertMessage}</div>}
 	</div>
 )
 
