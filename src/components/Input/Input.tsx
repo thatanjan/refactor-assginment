@@ -24,7 +24,12 @@ const Input = ({ labelProps, errorMessageProps, ...props }: InputProps) => {
 
 			<Field className={className} name={id} {...props} />
 
-			<ErrorMessage name={id} component='div' {...errorMessageProps} />
+			<ErrorMessage
+				className={styles.error__message}
+				name={id}
+				component='div'
+				{...errorMessageProps}
+			/>
 		</div>
 	)
 }

@@ -39,3 +39,8 @@
 	outline: none;
 	border: 1px solid #62bfad;
 }
+
+.error__message {
+	font-size: 1.3rem;
+	color: red;
+}
