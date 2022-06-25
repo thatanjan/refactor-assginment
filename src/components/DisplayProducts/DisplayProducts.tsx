@@ -48,9 +48,11 @@ const DisplayProducts = (props: Props) => {
 
 		;(async () => {
 			try {
-				const url = 'https://fakestoreapi.com/products'
+				// local api is using because fakestoreapi is not working.
+				// const url = 'https://fakestoreapi.com/products'
+				const url = 'http://localhost:8000/products'
 
-				const response = await fetch('')
+				const response = await fetch(url)
 
 				if (!response.ok) return handleError()
 
