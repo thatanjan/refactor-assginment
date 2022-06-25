@@ -9,20 +9,26 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 	labelProps?: LabelHTMLAttributes<HTMLLabelElement>
 	value: string | number
 	errorMessageProps?: ErrorMessageProps
+	component?: 'input' | 'textarea'
 }
 
-const Input = ({ labelProps, ...props }: InputProps) => (
-	<div>
-		<label className={styles.label} htmlFor={props.id} {...labelProps} />
-		<Field className={styles.input} name={props.id} {...props} />
-		<ErrorMessage name={props.id} component='div' />
-	</div>
-)
+const Input = ({ labelProps, ...props }: InputProps) => {
+	const { id } = props
+
+	return (
+		<div>
+			<label className={styles.label} htmlFor={id} {...labelProps} />
+			<Field className={styles.input} name={id} {...props} />
+			<ErrorMessage name={id} component='div' />
+		</div>
+	)
+}
 
 Input.defaultProps = {
 	type: 'text',
 	labelProps: {},
 	errorMessageProps: {},
+	component: 'input',
 }
 
 export default Input
