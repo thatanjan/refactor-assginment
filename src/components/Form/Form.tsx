@@ -47,7 +47,33 @@ const CusomForm = ({ addProduct }: FormProps) => {
 
 	return (
 		<Formik
-			validate={values => {}}
+			validate={values => {
+				type Errors = {
+					[key in keyof typeof values]: string
+				}
+
+				const errors: Partial<Errors> = {}
+
+				const { title, price, description } = values
+
+				if (!title) errors.title = 'Title is Required'
+				if (!price) errors.price = 'Price is Required'
+				if (!description) errors.description = 'Description is Required'
+
+				if (price < 1) errors.price = 'Price must be greater than 0'
+
+				if (title.length < 3) errors.title = 'Title must be at least 3 characters'
+				if (title.length > 50)
+					errors.title = 'Title must be less than 50 characters'
+
+				if (description.length < 20)
+					errors.description = 'Description must be at least 3 characters'
+
+				if (description.length > 500)
+					errors.description = 'Description must be less than 500 characters'
+
+				return errors
+			}}
 			onSubmit={() => {}}
 			initialValues={initialFormData}
 		>
