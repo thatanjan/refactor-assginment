@@ -1,24 +1,15 @@
 .button {
-  border: 0;
-  cursor: pointer;
-  color: #ffffff;
-  font-size: 5ch;
-  font-size: 18px;
-  background-color: #62bfad;
-  border: 0px;
-  border-radius: 10px;
-  width: 100%;
-  padding: 12px;
+	border: none;
+	cursor: pointer;
+	color: #ffffff;
+	font-size: 2rem;
+	font-size: 1.8rem;
+	background-color: #62bfad;
+	border-radius: 1rem;
+	width: 100%;
+	padding: 1.2rem;
 }
 
 .button:focus {
-  outline: none;
-  margin: inherit;
-  border: inherit;
-  display: inherit;
-  -webkit-align-content: inherit;
-  -webkit-animation-delay: inherit;
-  -webkit-animation-fill-mode: inherit;
-  -webkit-animation-timing-function: inherit;
-  -webkit-box-decoration-break: inherit;
+	outline: none;
 }
