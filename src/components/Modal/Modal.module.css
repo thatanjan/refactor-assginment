@@ -16,7 +16,7 @@
 	outline: none;
 }
 
-.reactModalOverlay {
+.modal__overlay {
 	font-family: 'Open Sans';
 	position: fixed;
 	top: 0;
@@ -25,6 +25,8 @@
 	bottom: 0;
 	background-color: rgba(0, 0, 0, 0.5);
 	z-index: 999;
+	/* add blur */
+	backdrop-filter: blur(1rem);
 }
 
 .modalContentHelper {

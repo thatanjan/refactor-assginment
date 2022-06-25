@@ -18,7 +18,7 @@ const Modal = ({ isModalOpen, closeModal, addProduct }: Props) => (
 	<ReactModal
 		isOpen={isModalOpen}
 		className={styles.react__Modal}
-		overlayClassName={styles.reactModalOverlay}
+		overlayClassName={styles.modal__overlay}
 	>
 		<div className={styles.close__icon__container}>
 			<button type='button' className={styles.modalClose} onClick={closeModal}>
