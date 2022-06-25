@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react'
 
 import Button from 'components/Button/Button'
 import Modal from 'components/Modal/Modal'
+import ProductList from 'components/Product/ProductList'
 
 import { Product, AddProduct, Products } from 'types/product'
 
@@ -97,6 +98,8 @@ const DisplayProducts = (props: Props) => {
 			{isModalOpen && <Modal {...modalProps} />}
 
 			<ProductStats {...productStatsProps} />
+
+			<ProductList products={products} />
 		</div>
 	)
 }
