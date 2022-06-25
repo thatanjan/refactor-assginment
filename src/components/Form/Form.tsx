@@ -80,7 +80,7 @@ const Form = ({ addProduct }: FormProps) => {
 				onChange={handleChange}
 			/>
 
-			<Button>Add a product</Button>
+			<Button type='submit'>Add a product</Button>
 		</form>
 	)
 }
