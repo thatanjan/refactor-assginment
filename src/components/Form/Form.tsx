@@ -80,29 +80,23 @@ const CusomForm = ({ addProduct }: FormProps) => {
 			{({ isSubmitting }) => (
 				<Form>
 					<Input
-						value={formData.title}
 						placeholder='Title...'
-						onChange={handleChange}
 						id='title'
 						labelProps={{ children: 'Product Title: *' }}
 					/>
 
 					<Input
-						value={formData.price}
 						placeholder='Price...'
 						id='price'
-						onChange={handleChange}
 						type='number'
 						labelProps={{ children: 'Product Price: *' }}
 					/>
 
 					<Input
 						component='textarea'
-						value={formData.description}
 						placeholder='Start typing product description here...'
 						className={styles.textarea}
 						id='description'
-						onChange={handleChange}
 					/>
 
 					<Button type='submit'>Add a product</Button>
