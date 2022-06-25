@@ -1,13 +1,13 @@
 .header {
-	background: #ffffff;
+	cursor: pointer;
 }
 
-.headerImageWrapper {
+.logo__Wrapper {
 	display: grid;
 	place-items: center;
 	height: 8rem;
 }
 
-.headerImage {
+.logo {
 	height: 6rem;
 }
