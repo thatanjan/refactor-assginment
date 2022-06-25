@@ -1,4 +1,5 @@
 import React, { useState, ChangeEvent, FormEventHandler } from 'react'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 
 import Button from 'components/Button/Button'
 import Input from 'components/Input/Input'
@@ -13,8 +14,8 @@ interface FormProps {
 
 type InputChangeEvent = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 
-const Form = ({ addProduct }: FormProps) => {
-	const initialFormData = {
+const CusomForm = ({ addProduct }: FormProps) => {
+	const initialFormData: AddProductPayload = {
 		title: '',
 		price: 0,
 		description: '',
@@ -45,35 +46,43 @@ const Form = ({ addProduct }: FormProps) => {
 	}
 
 	return (
-		<form className={styles.form} onSubmit={handleSubmit}>
-			<Input
-				value={formData.title}
-				placeholder='Title...'
-				onChange={handleChange}
-				id='title'
-				labelProps={{ children: 'Product Title: *' }}
-			/>
+		<Formik
+			validate={values => {}}
+			onSubmit={() => {}}
+			initialValues={initialFormData}
+		>
+			{({ isSubmitting }) => (
+				<Form>
+					<Input
+						value={formData.title}
+						placeholder='Title...'
+						onChange={handleChange}
+						id='title'
+						labelProps={{ children: 'Product Title: *' }}
+					/>
 
-			<Input
-				value={formData.price}
-				placeholder='Price...'
-				id='price'
-				onChange={handleChange}
-				type='number'
-				labelProps={{ children: 'Product Price: *' }}
-			/>
+					<Input
+						value={formData.price}
+						placeholder='Price...'
+						id='price'
+						onChange={handleChange}
+						type='number'
+						labelProps={{ children: 'Product Price: *' }}
+					/>
 
-			<textarea
-				value={formData.description}
-				placeholder='Start typing product description here...'
-				className={styles.textarea}
-				name='description'
-				onChange={handleChange}
-			/>
+					<textarea
+						value={formData.description}
+						placeholder='Start typing product description here...'
+						className={styles.textarea}
+						name='description'
+						onChange={handleChange}
+					/>
 
-			<Button type='submit'>Add a product</Button>
-		</form>
+					<Button type='submit'>Add a product</Button>
+				</Form>
+			)}
+		</Formik>
 	)
 }
 
-export default Form
+export default CusomForm
