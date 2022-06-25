@@ -26,7 +26,7 @@ const SendButton = ({ openModal, alertMessage }: SendButtonProps) => (
 )
 
 const ProductStats = ({ totalProducts, totalFavorites }: ProductStatsProps) => (
-	<div className={styles.statsContainer}>
+	<div className={styles.stats__container}>
 		<span>Total products: {totalProducts}</span>
 		<span> - </span>
 		<span>Number of favorites: {totalFavorites}</span>
