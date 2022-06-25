@@ -72,9 +72,12 @@ const DisplayProducts = (props: Props) => {
 	const addProduct: AddProduct = product => {}
 
 	const toggleFavorite = (index: number) => () => {
-		const product = products[index]
+		const newProducts = [...products]
+		const product = newProducts[index]
 
 		product.isFavorite = !product.isFavorite
+
+		setProducts(newProducts)
 
 		return true
 	}
