@@ -1,10 +1,11 @@
-import React, { DOMAttributes } from 'react'
+import React, { ButtonHTMLAttributes } from 'react'
 import styles from './Button.module.css'
 
-type ButtonProps = DOMAttributes<HTMLButtonElement>
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>
 
-const Button = ({ children, onClick }: ButtonProps) => (
-	<button type='button' className={styles.button} onClick={onClick}>
+const Button = ({ children, type = 'button', ...props }: ButtonProps) => (
+	// eslint-disable-next-line react/button-has-type
+	<button className={styles.button} type={type} {...props}>
 		{children}
 	</button>
 )
