@@ -66,7 +66,7 @@ const ProductCard = ({
 }
 
 const ProductList = ({ products, toggleFavorite }: ProductListProps) => (
-	<div>
+	<section className={styles.product__list}>
 		{products.map((product, index) => (
 			<ProductCard
 				index={index}
@@ -75,7 +75,7 @@ const ProductList = ({ products, toggleFavorite }: ProductListProps) => (
 				{...product}
 			/>
 		))}
-	</div>
+	</section>
 )
 
 export default ProductList
