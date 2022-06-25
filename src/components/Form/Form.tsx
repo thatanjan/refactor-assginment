@@ -55,7 +55,7 @@ const CusomForm = ({ addProduct }: FormProps) => {
 			initialValues={initialFormData}
 		>
 			{({ isSubmitting }) => (
-				<Form>
+				<Form className={styles.form}>
 					<Input
 						placeholder='Title...'
 						id='title'

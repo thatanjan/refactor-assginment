@@ -1,5 +1,4 @@
 .form {
-	font-family: 'Open Sans';
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-row-gap: 2rem;
 }
