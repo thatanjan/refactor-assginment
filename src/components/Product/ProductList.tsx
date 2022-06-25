@@ -6,12 +6,16 @@ import { Product } from 'types/product'
 
 import styles from './ProductList.module.css'
 
+type ToggleFavorite = (index: number) => boolean
+
 interface ProductListProps {
 	products: Product[]
+	toggleFavorite: ToggleFavorite
 }
 
 interface ProductCardProps extends Product {
 	index: number
+	toggleFavorite: ToggleFavorite
 }
 
 const ProductCard = ({
@@ -21,6 +25,7 @@ const ProductCard = ({
 	price,
 	description,
 	isFavorite,
+	toggleFavorite,
 }: ProductCardProps) => {
 	const {
 		product: productClass,
@@ -67,6 +72,7 @@ const ProductCard = ({
 				<span
 					className={`${actionBarItem} ${isFavorite ? 'active' : ''}`}
 					role='button'
+					onClick={toggleFavorite}
 				>
 					<FaStar />{' '}
 					<span className={actionBarItemLabel}>
@@ -78,10 +84,15 @@ const ProductCard = ({
 	)
 }
 
-const ProductList = ({ products }: ProductListProps) => (
+const ProductList = ({ products, toggleFavorite }: ProductListProps) => (
 	<div>
 		{products.map((product, index) => (
-			<ProductCard index={index} key={nanoid()} {...product} />
+			<ProductCard
+				index={index}
+				key={nanoid()}
+				toggleFavorite={toggleFavorite}
+				{...product}
+			/>
 		))}
 	</div>
 )

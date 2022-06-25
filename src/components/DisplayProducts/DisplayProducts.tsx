@@ -99,7 +99,7 @@ const DisplayProducts = (props: Props) => {
 
 			<ProductStats {...productStatsProps} />
 
-			<ProductList products={products} />
+			<ProductList toggleFavorite={toggleFavorite} products={products} />
 		</div>
 	)
 }
