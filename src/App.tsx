@@ -18,8 +18,16 @@ const DisplayImage = () => (
 			justifyContent: 'space-evenly',
 		}}
 	>
-		<img src={img1} style={{ maxHeight: '15em', display: 'block' }} />
-		<img src={img2} style={{ maxHeight: '15rem', display: 'block' }} />
+		<img
+			alt='Droppe'
+			src={img1}
+			style={{ maxHeight: '15em', display: 'block' }}
+		/>
+		<img
+			alt='Droppe'
+			src={img2}
+			style={{ maxHeight: '15rem', display: 'block' }}
+		/>
 	</section>
 )
 
