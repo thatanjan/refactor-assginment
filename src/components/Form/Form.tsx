@@ -48,7 +48,9 @@ const CusomForm = ({ addProduct }: FormProps) => {
 
 				return errors
 			}}
-			onSubmit={() => {}}
+			onSubmit={values => {
+				addProduct(values)
+			}}
 			initialValues={initialFormData}
 		>
 			{({ isSubmitting }) => (
