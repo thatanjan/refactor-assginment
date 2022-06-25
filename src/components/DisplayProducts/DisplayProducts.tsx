@@ -40,6 +40,8 @@ const DisplayProducts = (props: Props) => {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [alertMessage, setAlertMessage] = useState('')
 
+	const [totalFavorites, setTotalFavorites] = useState(0)
+
 	useEffect(() => {
 		const handleError = () => {
 			setAlertMessage('Error: could not load products')
@@ -59,6 +61,7 @@ const DisplayProducts = (props: Props) => {
 				const jsonResponse = (await response.json()) as Products
 
 				setProducts(jsonResponse.reverse())
+				setTotalFavorites(jsonResponse.filter(p => p.isFavorite).length)
 
 				return true
 			} catch (error) {
@@ -75,22 +78,18 @@ const DisplayProducts = (props: Props) => {
 		const newProducts = [...products]
 		const product = newProducts[index]
 
-		product.isFavorite = !product.isFavorite
+		const { isFavorite } = product
+
+		product.isFavorite = !isFavorite
 
 		setProducts(newProducts)
+		setTotalFavorites(prev => prev + (isFavorite ? -1 : 1))
 
 		return true
 	}
 
-	const totalProducts = products.length
-
-	const totalFavorites = useMemo(
-		() => products.filter(p => p.isFavorite).length,
-		[totalProducts]
-	)
-
 	const productStatsProps = {
-		totalProducts,
+		totalProducts: products.length,
 		totalFavorites,
 	}
 
