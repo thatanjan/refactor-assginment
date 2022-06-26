@@ -9,7 +9,7 @@
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
 		"react-icons": "^3.11.0",
-		"react-modal": "^3.11.2",
+		"react-modal": "^3.15.1",
 		"react-scripts": "^5.0.1"
 	},
 	"scripts": {
@@ -42,7 +42,7 @@
 		"@types/node": "^18.0.0",
 		"@types/react": "^18.0.14",
 		"@types/react-dom": "^18.0.5",
-		"@types/react-modal": "^3.10.6",
+		"@types/react-modal": "^3.13.1",
 		"@typescript-eslint/eslint-plugin": "^5.29.0",
 		"@typescript-eslint/parser": "^5.29.0",
 		"eslint": "^7.32.0 || ^8.2.0",
