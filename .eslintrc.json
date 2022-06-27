@@ -53,7 +53,8 @@
 				"tsx": "never"
 			}
 		],
-		"no-unused-vars": [
+		"no-unused-vars": "off",
+		"@typescript-eslint/no-unused-vars": [
 			"error",
 			{
 				"argsIgnorePattern": "^_"
@@ -79,6 +80,14 @@
 					"**/*.test.tsx"
 				]
 			}
+		],
+		"jsx-a11y/label-has-associated-control": [
+			"error",
+			{
+				"controlComponents": [
+					"Field"
+				]
+			}
 		]
 	},
 	"settings": {
@@ -96,5 +105,8 @@
 				]
 			}
 		}
-	}
+	},
+	"ignorePatterns": [
+		"src/serviceWorker.ts"
+	]
 }
