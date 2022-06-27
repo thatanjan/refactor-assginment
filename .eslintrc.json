@@ -80,6 +80,14 @@
 					"**/*.test.tsx"
 				]
 			}
+		],
+		"jsx-a11y/label-has-associated-control": [
+			"error",
+			{
+				"controlComponents": [
+					"Field"
+				]
+			}
 		]
 	},
 	"settings": {
