@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Suspense, lazy } from 'react'
 
 import Button from 'components/Button/Button'
-import Modal from 'components/Modal/Modal'
 import ProductList from 'components/Product/ProductList'
 
 import { Product, AddProduct, Products } from 'types/product'
 
 import styles from './DisplayProducts.module.css'
+
+const Modal = lazy(() => import('components/Modal/Modal'))
 
 interface SendButtonProps {
 	openModal: () => void
@@ -117,7 +118,7 @@ const DisplayProducts = () => {
 		<div>
 			<SendButton alertMessage={alertMessage} openModal={openModal} />
 
-			{isModalOpen && <Modal {...modalProps} />}
+			<Suspense>{isModalOpen && <Modal {...modalProps} />}</Suspense>
 
 			<ProductStats {...productStatsProps} />
 
