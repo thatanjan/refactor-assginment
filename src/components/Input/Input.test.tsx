@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { Formik, Form, ErrorMessageProps } from 'formik'
 import React, { InputHTMLAttributes, LabelHTMLAttributes } from 'react'
 
@@ -50,12 +50,19 @@ describe('Test Input component as a text element', () => {
 
 	render(<MockFormik {...props} />)
 
-	test('should render Input component correctly', () => {
-		const element = screen.getByLabelText<HTMLInputElement>('Name')
+	const element = screen.getByLabelText<HTMLInputElement>('Name')
 
+	test('should render Input component correctly', () => {
 		expect(element).toBeInTheDocument()
 		expect(element).toHaveAttribute('type', 'text')
 		expect(element).toHaveAttribute('id', 'name')
 		expect(element.tagName.toLowerCase()).toBe('input')
+	})
+
+	test('should be typed inside input box', () => {
+		fireEvent.change(element, { target: { value: 'John' } })
+		expect(element).toHaveValue('John')
+		fireEvent.change(element, { target: { value: 'Anjan' } })
+		expect(element).toHaveValue('Anjan')
 	})
 })
