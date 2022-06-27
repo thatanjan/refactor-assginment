@@ -35,4 +35,27 @@ const MockFormik = (props: InputProps) => {
 	)
 }
 
-describe('Test Input component', () => {})
+describe('Test Input component as a text element', () => {
+	const props: InputProps = {
+		type: 'text',
+		id: 'name',
+		labelProps: {
+			children: 'Name',
+		},
+		errorMessageProps: {
+			name: 'name',
+		},
+		component: 'input',
+	}
+
+	render(<MockFormik {...props} />)
+
+	test('should render Input component correctly', () => {
+		const element = screen.getByLabelText<HTMLInputElement>('Name')
+
+		expect(element).toBeInTheDocument()
+		expect(element).toHaveAttribute('type', 'text')
+		expect(element).toHaveAttribute('id', 'name')
+		expect(element.tagName.toLowerCase()).toBe('input')
+	})
+})
