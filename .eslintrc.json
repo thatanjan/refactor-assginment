@@ -18,14 +18,22 @@
 		"ecmaVersion": "latest",
 		"sourceType": "module"
 	},
-	"plugins": ["react", "@typescript-eslint"],
+	"plugins": [
+		"react",
+		"@typescript-eslint"
+	],
 	"rules": {
 		"react/react-in-jsx-scope": "off",
 		"arrow-body-style": "warn",
 		"react/jsx-filename-extension": [
 			1,
 			{
-				"extensions": [".js", ".jsx", ".ts", ".tsx"]
+				"extensions": [
+					".js",
+					".jsx",
+					".ts",
+					".tsx"
+				]
 			}
 		],
 		"react/function-component-definition": [
@@ -45,7 +53,8 @@
 				"tsx": "never"
 			}
 		],
-		"no-unused-vars": [
+		"no-unused-vars": "off",
+		"@typescript-eslint/no-unused-vars": [
 			"error",
 			{
 				"argsIgnorePattern": "^_"
@@ -56,7 +65,9 @@
 			"error",
 			{
 				"props": true,
-				"ignorePropertyModificationsFor": ["state"]
+				"ignorePropertyModificationsFor": [
+					"state"
+				]
 			}
 		],
 		"import/no-extraneous-dependencies": [
@@ -74,10 +85,20 @@
 	"settings": {
 		"import/resolver": {
 			"node": {
-				"extensions": [".js", ".jsx", ".ts", ".tsx"],
-				"moduleDirectory": ["node_modules", "src/"]
+				"extensions": [
+					".js",
+					".jsx",
+					".ts",
+					".tsx"
+				],
+				"moduleDirectory": [
+					"node_modules",
+					"src/"
+				]
 			}
 		}
 	},
-	"ignorePatterns": ["src/serviceWorker.ts"]
+	"ignorePatterns": [
+		"src/serviceWorker.ts"
+	]
 }
