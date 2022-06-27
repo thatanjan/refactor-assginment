@@ -9,9 +9,7 @@ jobs:
   runs-on: ubuntu-latest
   steps:
    - uses: actions/checkout@v2
-   - run: rm -rf node_modules/ yarn.lock
-   - run: npm ci
-   - run: npm run build
+   - run: rm -rf node_modules/ && yarn install --frozen-lockfile && yarn build
      env:
       CI: false
    - uses: FirebaseExtended/action-hosting-deploy@v0
