@@ -1,0 +1,13 @@
+.header {
+	cursor: pointer;
+}
+
+.logo__Wrapper {
+	display: grid;
+	place-items: center;
+	height: 8rem;
+}
+
+.logo {
+	height: 6rem;
+}

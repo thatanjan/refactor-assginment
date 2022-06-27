@@ -1,0 +1,14 @@
+.button_wrapper {
+	margin-bottom: 2.4rem;
+}
+
+.alert_message {
+	padding-top: 1.5rem;
+	text-align: center;
+	font-size: 1.8rem;
+}
+
+.stats__container {
+	margin-bottom: 3rem;
+	font-size: 1.8rem;
+}

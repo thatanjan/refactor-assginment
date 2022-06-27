@@ -1,0 +1,112 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": [
+		"react-app",
+		"react-app/jest",
+		"plugin:react/recommended",
+		"airbnb",
+		"prettier"
+	],
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": [
+		"react",
+		"@typescript-eslint"
+	],
+	"rules": {
+		"react/react-in-jsx-scope": "off",
+		"arrow-body-style": "warn",
+		"react/jsx-filename-extension": [
+			1,
+			{
+				"extensions": [
+					".js",
+					".jsx",
+					".ts",
+					".tsx"
+				]
+			}
+		],
+		"react/function-component-definition": [
+			1,
+			{
+				"namedComponents": "arrow-function",
+				"unnamedComponents": "arrow-function"
+			}
+		],
+		"import/extensions": [
+			"error",
+			"always",
+			{
+				"js": "never",
+				"jsx": "never",
+				"ts": "never",
+				"tsx": "never"
+			}
+		],
+		"no-unused-vars": "off",
+		"@typescript-eslint/no-unused-vars": [
+			"error",
+			{
+				"argsIgnorePattern": "^_"
+			}
+		],
+		"react/jsx-props-no-spreading": "off",
+		"no-param-reassign": [
+			"error",
+			{
+				"props": true,
+				"ignorePropertyModificationsFor": [
+					"state"
+				]
+			}
+		],
+		"import/no-extraneous-dependencies": [
+			"error",
+			{
+				"devDependencies": [
+					"**/*.test.js",
+					"**/*.test.jsx",
+					"**/*.test.ts",
+					"**/*.test.tsx"
+				]
+			}
+		],
+		"jsx-a11y/label-has-associated-control": [
+			"error",
+			{
+				"controlComponents": [
+					"Field"
+				]
+			}
+		]
+	},
+	"settings": {
+		"import/resolver": {
+			"node": {
+				"extensions": [
+					".js",
+					".jsx",
+					".ts",
+					".tsx"
+				],
+				"moduleDirectory": [
+					"node_modules",
+					"src/"
+				]
+			}
+		}
+	},
+	"ignorePatterns": [
+		"src/serviceWorker.ts"
+	]
+}
